@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="file/file.xsl" type="text/xsl"?>
+<students>
+    <Student>
+        <id>111</id>
+        <name>Rohit Sharma</name>
+        <course>BTech</course>
+    </Student>
+    <Student>
+        <id>112</id>
+        <name>Aman Sharma</name>
+        <course>BTech</course>
+    </Student>
+    <Student>
+        <id>113</id>
+        <name>Amber Sharma</name>
+        <course>BTech</course>
+    </Student>
+    <Student>
+        <id>114</id>
+        <name>Aryan Sharma</name>
+        <course>BTech</course>
+    </Student>
+</students>

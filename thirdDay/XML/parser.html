@@ -1,0 +1,29 @@
+<html>
+<body>
+
+<p id="demo"></p>
+<script>
+var parser, xmlDoc;
+
+var text = "<bookstore><book>" +
+"<title>Web Technology Book</title>" +
+"<author>Udit Aggarwal</author>" +
+"<year>2005</year>" +
+"</book></bookstore>";
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(text, "text/xml");
+
+var title = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+var author = xmlDoc.getElementsByTagName("author")[0].childNodes[0].nodeValue;
+var year = xmlDoc.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+
+document.getElementById("demo").innerHTML =
+"<b>Title:</b> " + title + "<br>" +
+"<b>Author:</b> " + author + "<br>" +
+"<b>Year:</b> " + year;
+</script>
+
+</body>
+</html>
+

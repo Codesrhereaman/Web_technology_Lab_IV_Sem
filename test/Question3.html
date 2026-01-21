@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Feedback System</title>
+</head>
+<body>
+
+<h2>Product Feedback System</h2>
+
+<form>
+    Customer Name:
+    <input type="text" name="cname"><br><br>
+
+    Email:
+    <input type="email" name="email"><br><br>
+
+    Purchase Date:
+    <input type="date" name="pdate"><br><br>
+
+    Quantity Purchased:
+    <input type="number" name="qty"><br><br>
+
+    Rating (1-5):
+    <input type="range" name="rating" min="1" max="5"><br><br>
+
+    Search Product:
+    <input type="search" name="search"><br><br>
+
+    Product Category:
+    <input list="category">
+    <datalist id="category">
+        <option value="Electronics">
+        <option value="Clothing">
+        <option value="Grocery">
+        <option value="Books">
+    </datalist><br><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+
+</body>
+</html>

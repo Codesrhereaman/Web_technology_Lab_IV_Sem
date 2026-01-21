@@ -1,0 +1,84 @@
+<html>  
+<head>  
+<style>  
+  
+ul {  
+  list-style-type: none;  
+  margin: 0;  
+  padding: 0;  
+  overflow: hidden;  
+  background-color: lightgray;  
+}  
+  
+li {  
+  float: left;  
+}  
+  
+li a, .dropbtn {  
+  display: inline-block;  
+  color: blue;  
+ font-size:20px;  
+  text-align: center;  
+  padding: 10px 20px;  
+  text-decoration: none;  
+}  
+.active{  
+background-color: gray;  
+color: white;  
+}  
+li a:hover , .dropdown:hover .dropbtn{  
+  background-color: orange;  
+  color: white;  
+}  
+  
+.dropdown-content {  
+  display: none;  
+  position: absolute;  
+  background-color: lightblue;  
+  min-width: 260px;  
+  box-shadow: 5px 8px 10px 0px black;  
+ }  
+  
+.dropdown-content a {  
+  color: black;  
+  padding: 12px 16px;  
+  text-decoration: none;  
+  display: block;  
+  text-align: left;  
+}  
+  
+.dropdown-content a:hover {  
+background-color: gray;  
+color:white;  
+}  
+  
+.dropdown:hover .dropdown-content {  
+  display: block;  
+}  
+h1,h2,h3{  
+text-align:center;   
+color: green;  
+}  
+</style>  
+</head>  
+<body>  
+<ul>  
+  <li><a class="active" href="#home">Home</a></li>  
+  <li><a href="#">Java</a></li>  
+  <li><a href="#">C</a></li>  
+  <li><a href="#">C++</a></li>  
+  <li class="dropdown">  
+    <a href="#" class="dropbtn">Web-designing</a>  
+    <div class="dropdown-content">  
+      <a href="#">HTML</a>  
+      <a href="#">CSS</a>  
+      <a href="#">Bootstrap</a>  
+    </div>  
+  </li>  
+</ul>  
+<h1>Welcome to the nietclouds.com</h1>  
+<h2>Example of Dropdown Menu inside a Navigation Bar</h2>  
+<h3>Move your cursor on the "web-designing" to see the dropdown effect.</h3>  
+  
+</body>  
+</html>  

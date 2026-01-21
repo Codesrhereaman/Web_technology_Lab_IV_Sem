@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>CSS Pseudo Classes</title>
+    <style>
+        .box {
+            background-color: yellow;
+            width: 300px;
+            height: 200px;
+            margin: auto;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .box:hover {
+            background-color: orange;
+        }
+
+        h1,
+        h2 {
+            color: green;
+            text-align: center;
+        }
+    .box{
+        background-color: yellow;
+        width: 300px;
+        height: 200px;
+        margin: auto;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .box:active{
+        background-color: orange;
+    }
+
+    h1, h2{
+        color: green;
+        text-align: center;
+    }
+
+
+form{
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 2rem;
+        }
+        
+        label{
+            width: 30%;
+        }
+        
+        input{
+            background-color: default;
+            float: right;
+        }
+        
+        input:focus{
+            background-color: grey;
+        }
+        
+        h1, h2{
+            color: green;
+            text-align: center;
+        }
+
+body{
+            text-align: center;
+        }
+        
+        h1, h2{
+            color: green;
+        }
+        
+        a:visited{
+            color: red;
+        }
+   
+
+    </style>
+
+    
+
+
+
+</head>
+
+<body>
+    
+    <h1>:hover Pseudo-class</h1>
+    <div class="box">
+        My color changes if you hover over me!
+    </div>
+
+
+    <h1>:active Pseudo-class</h1>
+    <div class="box">
+        My color changes for a moment if you click me!
+    </div>
+
+<h1>:focus Pseudo-class</h1>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" name="username" 
+               placeholder="Enter your username" />
+        <br>
+
+        <label for="emailid">Email-Id:</label>
+        <input type="email" name="emailid" 
+               placeholder="Enter your email-id" />
+
+        <label for="Password">Password:</label>
+        <input type="password" name="Password" 
+               placeholder="Enter your password" />
+
+    </form>
+
+<h1>:visited Pseudo-class</h2>
+
+    <p>
+        <a href="https://www.goolge.com/" target="_blank">
+            My color changes once you visit this link
+        </a>
+    </p>
+
+</body>
+  
+</html>

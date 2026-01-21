@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<books>
+
+    <book>
+        <title>HTML Basics</title>
+        <price>200</price>
+    </book>
+    <book>
+        <title>XML Basics</title>
+        <price>250</price>
+    </book>
+    <book>
+        <title>PHP Programming</title>
+        <price>300</price>
+    </book>
+    <book>
+        <title>Web Technology</title>
+        <price>450</price>
+    </book>
+    <book>
+        <title>Core Java</title>
+        <price>500</price>
+    </book>
+    <book>
+        <title>Advanced Java</title>
+        <price>650</price>
+    </book>
+</books>

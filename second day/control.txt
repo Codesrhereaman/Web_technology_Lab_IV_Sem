@@ -1,0 +1,9 @@
+control are:
+text input
+checkbox
+radiobox
+selectbox
+field
+hidden
+clickable
+submit and reset button

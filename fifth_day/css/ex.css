@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-image: url("images/backiee-99310.jpg");
+    background-repeat: repeat;
+    background-position: left;
+}
+
+p {
+    margin: 15px 0;
+}
+
+.red {
+    color: red;
+    text-align: center;
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.green {
+    color: green;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.blue {
+    color: blue;
+    text-align: left;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.yellow {
+    color: yellow;
+    text-align: center;
+    font-size: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+    xmlns:h="abc.com"
+    xmlns:f="abcd.com">
+    <h:table>
+        <h:tr>
+            <h:td>Apples</h:td>
+            <h:td>Bananas</h:td>
+        </h:tr>
+    </h:table>
+    <f:table>
+            <f:name>Aman</f:name>
+            <f:width>75</f:width>
+            <f:length>123</f:length>
+</f:table>
+</root>

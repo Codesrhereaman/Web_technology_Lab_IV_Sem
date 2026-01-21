@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<students>
+    <student>
+        <roll>101</roll>
+        <name>Rahul</name>
+        <marks>80</marks>
+    </student>
+
+    <student>
+        <roll>102</roll>
+        <name>Neha</name>
+        <marks>90</marks>
+    </student>
+
+    <student>
+        <roll>110</roll>
+        <name>Sohit</name>
+        <marks>78</marks>
+    </student>
+
+   <student>
+        <roll>114</roll>
+        <name>Rohan</name>
+        <marks>82</marks>
+    </student>
+
+    <student>
+        <roll>103</roll>
+        <name>Amit</name>
+        <marks>70</marks>
+    </student>
+</students>

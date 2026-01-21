@@ -1,0 +1,17 @@
+<books>
+  <book>
+    <title>Learning XML</title>
+    <author>Erik T. Ray</author>
+    <price>39.95</price>
+  </book>
+  <book>
+    <title>XQuery Kick Start</title>
+    <author>James McGovern</author>
+    <price>49.99</price>
+  </book>
+  <book>
+    <title>XML Developer's Guide</title>
+    <author>Ben Smith</author>
+    <price>29.95</price>
+  </book>
+</books>

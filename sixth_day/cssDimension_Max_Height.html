@@ -1,0 +1,42 @@
+<html>
+<head>
+<style>
+   div {
+      width: 60%;
+      overflow: auto;
+      border: 2px solid black;
+      padding-bottom: 2px;
+      }   
+   div.a {
+      max-height: 100px;
+      }
+   div.b {
+      max-height: 70%;
+      }
+   div.c {
+      max-height: inherit;
+      }
+   div.d {
+      max-height: none;
+      }
+</style>
+</head>
+<body>
+   <div class="a">
+      <h2>max-height: 100px and width:80%</h2>
+         <p class="a"><p>The <i>max-height</i> property allows you to specify maximum height of a box. The value of the max-height property can be various, but this one is 100px.</p>
+   </div>
+   <div class="b">
+      <h2>max-height: 70% and width:80%</h2>
+         <p class="a"><p>The <i>max-height</i> property allows you to specify maximum height of a box.</p>
+   </div>
+   <div class="c">
+      <h2>max-height: inherit and width:80%</h2>
+         <p class="a"><p>The <i>max-height</i> property allows you to specify maximum height of a box.</p>
+   </div>
+   <div class="d">
+      <h2>max-height: none and width:80%</h2>
+         <p class="a"><p>The <i>max-height</i> property allows you to specify maximum height of a box. </p>
+   </div>
+</body>
+</html>

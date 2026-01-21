@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<bookstore>
+    <book>
+        <title>Java</title>
+        <price>450</price>
+    </book>
+
+    <book>
+        <title>PHP</title>
+        <price>300</price>
+    </book>
+
+    <book>
+        <title>Web Technology</title>
+        <price>600</price>
+    </book>
+
+    <book>
+       <title>Java Script</title>
+        <price>350</price>
+    </book>
+</bookstore>
