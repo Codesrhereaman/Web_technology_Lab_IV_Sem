@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Needs Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .announcement-bar .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Main Navbar */
+        .main-navbar {
+            background-color: #f5f5f5;
+            padding: 16px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-decoration: none;
+            display: inline-flex;
+        }
+
+        .logo-urban {
+            background-color: #000;
+            color: #fff;
+            padding: 4px 8px;
+        }
+
+        .logo-needs {
+            background-color: #fff;
+            color: #000;
+            padding: 4px 8px;
+            border: 2px solid #000;
+        }
+
+        .navbar-icon {
+            font-size: 24px;
+            color: #000;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .navbar-icon:hover {
+            color: #666;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            background-color: #fff;
+            padding: 12px 0;
+            /* border-bottom: 1px solid #e0e0e0; */
+        }
+
+        .nav-menu .nav-link {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-menu .nav-link:hover {
+            color: #666;
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 4px;
+            font-size: 12px;
+        }
+        .hover-underline:hover {
+            text-decoration: underline;
+        }
+
+        /* Full Photo Section */
+        .image-add {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+        }
+
+        .image-add img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* Hero Section */
+        .hero-section {
+            background-color: #f8f8f8;
+            padding: 60px 0;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 40px;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: #fff;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .price-original {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .price-sale {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .product-image {
+                height: 300px;
+            }
+        }
+        /* Video Section Styles */
+        .video-showcase-section {
+            padding: 40px 0;
+        }
+
+        .video-card {
+            background: #fff;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .video-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .video-wrapper {
+                padding-bottom: 75%; /* More square ratio for mobile */
+            }
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container-fluid px-4">
+            <div>
+                <i class="bi bi-instagram"></i>
+            </div>
+            <div>Hoodies Restocked</div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Main Navbar -->
+    <nav class="main-navbar">
+        <div class="container-fluid px-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-search navbar-icon"></i>
+                </div>
+                
+                <a href="#" class="logo">
+                    <span class="logo-urban">Sity </span><span class="logo-needs">Bites</span>
+                </a>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-person navbar-icon"></i>
+                    <i class="bi bi-bag navbar-icon"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <div class="container-fluid">
+            <ul class="nav justify-content-center flex-wrap">
+                <li class="nav-item">
+                    <a class="nav-link text-decoration-underline" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hover-underline" href="#" role="button" data-bs-toggle="dropdown">
+                        Shirts
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item hover-underline" href="#">All Shirts</a></li>
+                        <li><a class="dropdown-item hover-underline" href="#">T-Shirts</a></li>
+                        <li><a class="dropdown-item hover-underline" href="#">Casual Shirts</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hover-underline" href="#" role="button" data-bs-toggle="dropdown">
+                        Tees
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item hover-underline" href="#">All Tees</a></li>
+                        <li><a class="dropdown-item hover-underline " href="#">Graphic Tees</a></li>
+                        <li><a class="dropdown-item" href="#">Plain Tees</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hover-underline" href="#" role="button" data-bs-toggle="dropdown">
+                        Pants
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item hover-underline" href="#">All Pants</a></li>
+                        <li><a class="dropdown-item hover-underline" href="#">Jeans</a></li>
+                        <li><a class="dropdown-item" href="#">Cargo</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hover-underline" href="#" role="button" data-bs-toggle="dropdown">
+                        Winter Arc
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item hover-underline" href="#">Hoodies</a></li>
+                        <li><a class="dropdown-item hover-underline " href="#">Jackets</a></li>
+                        <li><a class="dropdown-item" href="#">Sweaters</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hover-underline" href="#">Rager Collection</a>
+                </li>
+                <li class="nav-item dropdown hover-underline">
+                    <a class="nav-link dropdown-toggle hover-underline" href="#" role="button" data-bs-toggle="dropdown">
+                        Polos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item hover-underline" href="#">All Polos</a></li>
+                        <li><a class="dropdown-item" href="#">Classic Polos</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tank Top</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hover-underline" href="#" role="button" data-bs-toggle="dropdown">
+                        Our Policies
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item hover-underline" href="#">Shipping Policy</a></li>
+                        <li><a class="dropdown-item hover-underline " href="#">Return Policy</a></li>
+                        <li><a class="dropdown-item" href="#">Privacy Policy</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Second Row Menu -->
+    <div class="nav-menu">
+        <div class="container-fluid">
+            <ul class="nav justify-content-center flex-wrap">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Customer Support
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                        <li><a class="dropdown-item" href="#">FAQs</a></li>
+                        <li><a class="dropdown-item" href="#">Track Order</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Full Photo -->
+    <div class="image-add">
+        <img src="image/img.png" alt="Full Photo" class="img-fluid">
+    </div>
+
+    <section class="hero-section py-5">
+        <div class="container">
+            <!-- Section 1: Graphic Hoodies -->
+            <div class="product-section">
+            <h1 class="hero-title mb-5">Graphic hoodies are LIVE!</h1>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500&h=600&fit=crop" alt="EMBRACE CHANGE HOODIE" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">EMBRACE CHANGE HOODIE (drop.1)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 3,499.00</span>
+                                <span class="price-sale">Rs. 2,699.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=500&h=600&fit=crop" alt="Oversized Hoodie - Solitude" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">Oversized Hoodie - Solitude (Black)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 3,499.00</span>
+                                <span class="price-sale">Rs. 2,699.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&h=600&fit=crop" alt="Oversized Hoodie - Strength" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">Oversized Hoodie - Strength (Jungle Green)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 3,499.00</span>
+                                <span class="price-sale">Rs. 2,699.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=500&h=600&fit=crop" alt="VISION HOODIE" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">VISION HOODIE (drop.1)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 3,499.00</span>
+                                <span class="price-sale">Rs. 2,699.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Section 2: Premium T-Shirts Collection -->
+            <div class="product-section">
+            <h1 class="hero-title mb-5">Premium T-Shirts Collection</h1>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=600&fit=crop" alt="Classic Tee" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">CLASSIC GRAPHIC TEE</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 1,499.00</span>
+                                <span class="price-sale">Rs. 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&h=600&fit=crop" alt="Urban Tee" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">URBAN ESSENTIAL TEE</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 1,499.00</span>
+                                <span class="price-sale">Rs. 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&h=600&fit=crop" alt="Street Style Tee" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">STREET STYLE TEE</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 1,699.00</span>
+                                <span class="price-sale">Rs. 1,199.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=600&fit=crop" alt="Vintage Tee" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">VINTAGE GRAPHIC TEE</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 1,499.00</span>
+                                <span class="price-sale">Rs. 999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Section 3: Winter Essentials -->
+            <div class="product-section">
+            <h1 class="hero-title mb-5">Winter Essentials</h1>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=600&fit=crop" alt="Bomber Jacket" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">CLASSIC BOMBER JACKET</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 4,999.00</span>
+                                <span class="price-sale">Rs. 3,799.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&h=600&fit=crop" alt="Puffer Jacket" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">PUFFER JACKET (BLACK)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 5,499.00</span>
+                                <span class="price-sale">Rs. 4,299.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=500&h=600&fit=crop" alt="Denim Jacket" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">DENIM JACKET (BLUE)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 3,999.00</span>
+                                <span class="price-sale">Rs. 2,999.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=500&h=600&fit=crop" alt="Leather Jacket" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">LEATHER JACKET</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 6,999.00</span>
+                                <span class="price-sale">Rs. 5,499.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Section 4: Streetwear Pants -->
+            <div class="product-section">
+            <h1 class="hero-title mb-5">Streetwear Pants Collection</h1>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500&h=600&fit=crop" alt="Cargo Pants" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">TACTICAL CARGO PANTS</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 2,499.00</span>
+                                <span class="price-sale">Rs. 1,899.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500&h=600&fit=crop" alt="Slim Fit Jeans" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">SLIM FIT JEANS (BLACK)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 2,999.00</span>
+                                <span class="price-sale">Rs. 2,299.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=500&h=600&fit=crop" alt="Wide Leg Pants" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">WIDE LEG PANTS (OLIVE)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 2,799.00</span>
+                                <span class="price-sale">Rs. 2,099.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=500&h=600&fit=crop" alt="Track Pants" class="img-fluid">
+                        </div>
+                        <div class="product-info">
+                            <h5 class="product-title">TRACK PANTS (NAVY)</h5>
+                            <div class="product-price">
+                                <span class="price-original">Rs. 1,999.00</span>
+                                <span class="price-sale">Rs. 1,499.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <!-- Video Section -->
+            <div class="video-showcase-section">
+                <h1 class="video-cards row mb-5">Behind The Scenes</h1>
+                <div class="row g-4 mb-5">
+                    <!-- Video 1 -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=450&fit=crop">
+                                    <source src="videos/main (1).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">HOODIE COLLECTION LAUNCH</h5>
+                                <p class="video-description">Watch how we created our latest graphic hoodie collection</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 2 -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1578664182803-8f0523af105d?w=800&h=450&fit=crop">
+                                    <source src="videos/main (2).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">STREETWEAR LOOKBOOK</h5>
+                                <p class="video-description">Explore our complete streetwear collection for 2025</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=450&fit=crop">
+                                    <source src="videos/main (3).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">WINTER ARC ESSENTIALS</h5>
+                                <p class="video-description">Stay warm and stylish with our winter collection</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=800&h=450&fit=crop">
+                                    <source src="videos/main (4).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">CUSTOMER STORIES</h5>
+                                <p class="video-description">Hear from our amazing community of urban creators</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=800&h=450&fit=crop">
+                                    <source src="videos/main (5).mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">CUSTOMER STORIES</h5>
+                                <p class="video-description">Hear from our amazing community of urban creators</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="video-card">
+                            <div class="video-wrapper">
+                                <video class="video-player" >
+                                    <source src="videos/main.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="video-info">
+                                <h5 class="video-title">CUSTOMER STORIES</h5>
+                                <p class="video-description">Hear from our amazing community of urban creators</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Lazy Loading Sections on Scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.product-section');
+            
+            // Hide all sections except the first one initially
+            sections.forEach((section, index) => {
+                if (index > 0) {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(50px)';
+                    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                }
+            });
+
+            // Intersection Observer for lazy loading
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections except the first one
+            sections.forEach((section, index) => {
+                if (index > 0) {
+                    observer.observe(section);
+                }
+            });
+
+            // Add stagger animation to product cards within each section
+            sections.forEach(section => {
+                const cards = section.querySelectorAll('.product-card');
+                cards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                });
+            });
+
+            // Animate cards when section becomes visible
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const cards = entry.target.querySelectorAll('.product-card');
+                        cards.forEach(card => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                cardObserver.observe(section);
+            });
+        });
+    </script>
+        
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+</body>
+</html>
