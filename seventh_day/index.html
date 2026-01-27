@@ -3,18 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Needs Navbar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
@@ -22,7 +10,196 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
+               * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        .video-container {
+            width: 100%;
+            padding: 20px 65px;
+            overflow-x: auto;
+        }
+
+        .video-row {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+        }
+
+        .video-card {
+            width: 280px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            padding: 10px,10px;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #FFD700;
+            font-size: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            z-index: 3;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .play-icon::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid #000;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+
+        .video-card.playing .play-icon {
+            display: none;
+        }
+
+        .video-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .action-btn.liked {
+            background: #ff4444;
+            color: white;
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .brand-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .brand-name {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .product-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .current-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .original-price {
+            font-size: 13px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background: #ff4444;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover {
+            background: #333;
+        }
         /* Top Announcement Bar */
         .announcement-bar {
             background-color: #000;
@@ -201,69 +378,10 @@
                 height: 300px;
             }
         }
-        /* Video Section Styles */
-        .video-showcase-section {
-            padding: 40px 0;
-        }
-
-        .video-card {
-            background: #fff;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            height: 100%;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            background: #000;
-            overflow: hidden;
-        }
-
-        .video-player {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .video-info {
-            padding: 20px;
-        }
-
-        .video-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .video-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .video-wrapper {
-                padding-bottom: 75%; /* More square ratio for mobile */
-            }
-        }
-    </style>
-    </style>
+        
+</style>
 </head>
-<body>
+
     <!-- Announcement Bar -->
     <div class="announcement-bar">
         <div class="container-fluid px-4">
@@ -652,175 +770,294 @@
         </div>
     </section>
     <!-- Video Section -->
-            <div class="video-showcase-section">
-                <h1 class="video-cards row mb-5">Behind The Scenes</h1>
-                <div class="row g-4 mb-5">
-                    <!-- Video 1 -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="video-card">
-                            <div class="video-wrapper">
-                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=450&fit=crop">
-                                    <source src="videos/main (1).mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h5 class="video-title">HOODIE COLLECTION LAUNCH</h5>
-                                <p class="video-description">Watch how we created our latest graphic hoodie collection</p>
-                            </div>
-                        </div>
+     
+    <div class="video-container">
+        <h1 class="video-text mb-5 text-center">Some content</h1>
+        <div class="video-row">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video class="video-player" loop muted playsinline>
+                        <source src="videos/main (1).mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-icon"></div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn">♡</button>
+                        <button class="action-btn share-btn">↗</button>
                     </div>
-
-                    <!-- Video 2 -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="video-card">
-                            <div class="video-wrapper">
-                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1578664182803-8f0523af105d?w=800&h=450&fit=crop">
-                                    <source src="videos/main (2).mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h5 class="video-title">STREETWEAR LOOKBOOK</h5>
-                                <p class="video-description">Explore our complete streetwear collection for 2025</p>
-                            </div>
-                        </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">
+                        <div class="brand-avatar">U</div>
+                        <span class="brand-name">URBANNEEDS</span>
                     </div>
-
-                    <!-- Video 3 -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="video-card">
-                            <div class="video-wrapper">
-                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&h=450&fit=crop">
-                                    <source src="videos/main (3).mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h5 class="video-title">WINTER ARC ESSENTIALS</h5>
-                                <p class="video-description">Stay warm and stylish with our winter collection</p>
-                            </div>
-                        </div>
+                    <h3 class="product-title">Oversized Hoodie - Green</h3>
+                    <div class="price-section">
+                        <span class="current-price">₹ 2699</span>
+                        <span class="original-price">₹ 3499</span>
+                        <span class="discount-badge">23% Off</span>
                     </div>
-
-                    <!-- Video 4 -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="video-card">
-                            <div class="video-wrapper">
-                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=800&h=450&fit=crop">
-                                    <source src="videos/main (4).mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h5 class="video-title">CUSTOMER STORIES</h5>
-                                <p class="video-description">Hear from our amazing community of urban creators</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="video-card">
-                            <div class="video-wrapper">
-                                <video class="video-player" controls poster="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=800&h=450&fit=crop">
-                                    <source src="videos/main (5).mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h5 class="video-title">CUSTOMER STORIES</h5>
-                                <p class="video-description">Hear from our amazing community of urban creators</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="video-card">
-                            <div class="video-wrapper">
-                                <video class="video-player" >
-                                    <source src="videos/main.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </div>
-                            <div class="video-info">
-                                <h5 class="video-title">CUSTOMER STORIES</h5>
-                                <p class="video-description">Hear from our amazing community of urban creators</p>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="buy-btn">Buy Now</button>
                 </div>
             </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video class="video-player" loop muted playsinline>
+                        <source src="videos/main (2).mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-icon"></div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn">♡</button>
+                        <button class="action-btn share-btn">↗</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">
+                        <div class="brand-avatar">U</div>
+                        <span class="brand-name">URBANNEEDS</span>
+                    </div>
+                    <h3 class="product-title">Everyday Hoodie - Black</h3>
+                    <div class="price-section">
+                        <span class="current-price">₹ 1699</span>
+                        <span class="original-price">₹ 2199</span>
+                        <span class="discount-badge">23% Off</span>
+                    </div>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video class="video-player" loop muted playsinline>
+                        <source src="videos/main (3).mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-icon"></div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn">♡</button>
+                        <button class="action-btn share-btn">↗</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">
+                        <div class="brand-avatar">U</div>
+                        <span class="brand-name">URBANNEEDS</span>
+                    </div>
+                    <h3 class="product-title">Oversized Hoodie - Part 3</h3>
+                    <div class="price-section">
+                        <span class="current-price">₹ 2699</span>
+                        <span class="original-price">₹ 3499</span>
+                        <span class="discount-badge">23% Off</span>
+                    </div>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video class="video-player" loop muted playsinline>
+                        <source src="videos/main (4).mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-icon"></div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn">♡</button>
+                        <button class="action-btn share-btn">↗</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">
+                        <div class="brand-avatar">U</div>
+                        <span class="brand-name">URBANNEEDS</span>
+                    </div>
+                    <h3 class="product-title">Oversized Hoodie - Ocean</h3>
+                    <div class="price-section">
+                        <span class="current-price">₹ 2699</span>
+                        <span class="original-price">₹ 3499</span>
+                        <span class="discount-badge">23% Off</span>
+                    </div>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video class="video-player" loop muted playsinline>
+                        <source src="videos/main (5).mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-icon"></div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn">♡</button>
+                        <button class="action-btn share-btn">↗</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">
+                        <div class="brand-avatar">U</div>
+                        <span class="brand-name">URBANNEEDS</span>
+                    </div>
+                    <h3 class="product-title">Oversized Hoodie - Black</h3>
+                    <div class="price-section">
+                        <span class="current-price">₹ 2699</span>
+                        <span class="original-price">₹ 3499</span>
+                        <span class="discount-badge">23% Off</span>
+                    </div>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Video 6 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video class="video-player" loop muted playsinline>
+                        <source src="videos/main.mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="play-icon"></div>
+                    <div class="video-actions">
+                        <button class="action-btn like-btn">♡</button>
+                        <button class="action-btn share-btn">↗</button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">
+                        <div class="brand-avatar">U</div>
+                        <span class="brand-name">URBANNEEDS</span>
+                    </div>
+                    <h3 class="product-title">Lounge Pants - Espresso</h3>
+                    <div class="price-section">
+                        <span class="current-price">₹ 1399</span>
+                        <span class="original-price">₹ 1799</span>
+                        <span class="discount-badge">22% Off</span>
+                    </div>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQ Section -->
+<section class="faq-section py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Frequently Asked Questions</h2>
+      <p class="text-muted">Everything you need to know before ordering</p>
+    </div>
+
+    <div class="accordion accordion-flush" id="faqAccordion">
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#faq1">
+            How long does delivery take?
+          </button>
+        </h2>
+        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Orders are usually delivered within <strong>5–7 working days</strong> depending on your location.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#faq2">
+            What is your return policy?
+          </button>
+        </h2>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We offer a <strong>7-day return</strong> policy for unused products with original packaging.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#faq3">
+            How do I choose the correct size?
+          </button>
+        </h2>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Refer to our <strong>size chart</strong> available on the product page for accurate fitting.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button"
+            data-bs-toggle="collapse" data-bs-target="#faq4">
+            Is Cash on Delivery available?
+          </button>
+        </h2>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, <strong>Cash on Delivery</strong> is available for selected locations.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+2
     <script>
-        // Lazy Loading Sections on Scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.product-section');
+        // Play/Pause video on click
+        document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+            const video = wrapper.querySelector('.video-player');
+            const card = wrapper.closest('.video-card');
             
-            // Hide all sections except the first one initially
-            sections.forEach((section, index) => {
-                if (index > 0) {
-                    section.style.opacity = '0';
-                    section.style.transform = 'translateY(50px)';
-                    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            wrapper.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    card.classList.add('playing');
+                } else {
+                    video.pause();
+                    card.classList.remove('playing');
                 }
-            });
-
-            // Intersection Observer for lazy loading
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all sections except the first one
-            sections.forEach((section, index) => {
-                if (index > 0) {
-                    observer.observe(section);
-                }
-            });
-
-            // Add stagger animation to product cards within each section
-            sections.forEach(section => {
-                const cards = section.querySelectorAll('.product-card');
-                cards.forEach((card, index) => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(30px)';
-                    card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-                });
-            });
-
-            // Animate cards when section becomes visible
-            const cardObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const cards = entry.target.querySelectorAll('.product-card');
-                        cards.forEach(card => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        });
-                        cardObserver.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            sections.forEach(section => {
-                cardObserver.observe(section);
             });
         });
+
+        // Like button
+        document.querySelectorAll('.like-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.classList.toggle('liked');
+                btn.textContent = btn.classList.contains('liked') ? '♥' : '♡';
+            });
+        });
+
+        // Share button
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                alert('Share functionality coming soon!');
+            });
+        });
+
+        // Buy button
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const title = btn.closest('.product-info').querySelector('.product-title').textContent;
+                alert(`Proceeding to checkout for: ${title}`);
+            });
+        });
+
     </script>
         
-    </section>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

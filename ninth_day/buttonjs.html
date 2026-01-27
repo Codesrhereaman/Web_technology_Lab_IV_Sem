@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="changeText()" type="submit">Click me</button>
+    <p id="demo"></p>
+    <form name="form">
+        Enter a number to find cube: <input type="number" name="number" id ="number"> >
+    </form>
+    <input type="submit" id="num1" value="find-square" onclick="findsqaure()">
+    <input type="submit" value="find-cube" onclick="findcube(document.form.number.value)">
+    <script>                                 
+        function changeText() {
+            document.getElementById("demo").innerHTML = "Button clicked!";
+        }
+        function findcube(number) {
+            document.write("cube is: " + number * number * number);
+        }
+        function findsqaure() {
+            var num = document.getElementById("number").value;
+            document.write("square is: " + num * num);
+        }
+    </script>
+</body>
+</html>

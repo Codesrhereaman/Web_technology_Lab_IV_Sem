@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const number = 50;
+        function print(){
+            const add = number+number;
+            if(number>20){
+                var larnumber = 50;
+                let lessnumber  =12;//it is defined as local scope not block as var do not support it
+                console.log(add);
+            }
+            console.log(larnumber);
+            console.log(lessnumber);
+        }
+        print();
+    </script>
+</body>
+</html>
