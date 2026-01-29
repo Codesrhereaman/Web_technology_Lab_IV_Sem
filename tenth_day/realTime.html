@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#f3f4f6;">
+        <div class="calculator" style="width:320px;background:#222;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.2);">
+            <div id="display" style="height:64px;background:#000;color:#0f0;font-size:28px;padding:10px;border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:flex-end;overflow:auto;">0</div>
+
+            <div class="keys" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+                <button class="key" data-value="C" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#ff6b6b;color:#fff;">C</button>
+                <button class="key" data-value="back" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#9ca3af;color:#fff;">⌫</button>
+                <button class="key" data-value="/" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#9ca3af;color:#fff;">÷</button>
+                <button class="key" data-value="*" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#9ca3af;color:#fff;">×</button>
+
+                <button class="key" data-value="7" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">7</button>
+                <button class="key" data-value="8" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">8</button>
+                <button class="key" data-value="9" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">9</button>
+                <button class="key" data-value="-" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#9ca3af;color:#fff;">−</button>
+
+                <button class="key" data-value="4" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">4</button>
+                <button class="key" data-value="5" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">5</button>
+                <button class="key" data-value="6" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">6</button>
+                <button class="key" data-value="+" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#9ca3af;color:#fff;">+</button>
+
+                <button class="key" data-value="1" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">1</button>
+                <button class="key" data-value="2" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">2</button>
+                <button class="key" data-value="3" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">3</button>
+                <button class="key" data-value="=" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#06b6d4;color:#fff;">=</button>
+
+                <button class="key" data-value="0" style="grid-column:span 2;padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">0</button>
+                <button class="key" data-value="." style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#374151;color:#fff;">.</button>
+                <button class="key" data-value="%" style="padding:16px;font-size:18px;border-radius:8px;border:none;background:#9ca3af;color:#fff;">%</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        const display = document.getElementById('display');
+        let expr = '';
+
+        function updateDisplay(text){
+            display.textContent = text || '0';
+        }
+
+        function safeEval(s){
+            // replace common symbols to JS operators
+            const sanitized = s.replace(/×/g, '*').replace(/÷/g, '/').replace(/−/g, '-');
+            try{
+                // Basic validation: allow digits, operators, parentheses, dot, percent and spaces
+                if(/^[0-9()+\-*/.%\s]+$/.test(sanitized)){
+                    // handle percent: convert '50%' -> '(50/100)'
+                    const withPercent = sanitized.replace(/(\d+(?:\.\d+)?)%/g, '($1/100)');
+                    const result = eval(withPercent);
+                    return result;
+                }
+            }catch(e){ }
+            return 'Error';
+        }
+
+        document.querySelectorAll('.key').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const v = btn.dataset.value;
+                if(v === 'C'){
+                    expr = '';
+                    updateDisplay('0');
+                    return;
+                }
+                if(v === 'back'){
+                    expr = expr.slice(0,-1);
+                    updateDisplay(expr || '0');
+                    return;
+                }
+                if(v === '='){
+                    const res = safeEval(expr);
+                    expr = (typeof res === 'number' && isFinite(res)) ? String(res) : '';
+                    updateDisplay(res);
+                    return;
+                }
+
+                // append other values
+                // convert displayed operator symbols to JS-friendly ones for internal expr
+                if(v === '×') expr += '*';
+                else if(v === '÷') expr += '/';
+                else expr += v;
+                updateDisplay(expr);
+            });
+        });
+
+        // optional: allow keyboard input for convenience
+        window.addEventListener('keydown', (e) => {
+            const key = e.key;
+            if((/^[0-9()+\-*/.%]$/).test(key)){
+                expr += key;
+                updateDisplay(expr);
+                return;
+            }
+            if(key === 'Enter'){
+                const res = safeEval(expr);
+                expr = (typeof res === 'number' && isFinite(res)) ? String(res) : '';
+                updateDisplay(res);
+                return;
+            }
+            if(key === 'Backspace'){
+                expr = expr.slice(0,-1);
+                updateDisplay(expr || '0');
+                return;
+            }
+            if(key === 'Escape'){
+                expr = '';
+                updateDisplay('0');
+                return;
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

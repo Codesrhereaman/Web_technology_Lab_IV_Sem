@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var id,name,salary;
+    function Employee(id,name,salary){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    emp1 = new Employee(101,"ajay",45000);
+    emp2 = new Employee(102,"vijay",50000);
+    document.write("Employee 1 id: "+emp1.id+ "Employee name: "+ emp1.name+"Employee salary: "+emp1.salary+"<br>");
+    document.write("Employee 2 id: "+emp2.id+ "Employee name: "+ emp2.name+"Employee salary: "+emp2.salary+"<br>");
+    console.log(emp1);
+    </script>
+</body>
+</html>
