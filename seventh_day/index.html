@@ -369,6 +369,188 @@
             color: #000;
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .testimonials-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #00a896;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .review-count {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        .review-count i {
+            color: #00a896;
+            margin-left: 5px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .testimonial-stars {
+            color: #00a896;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control-prev {
+            left: -20px;
+        }
+
+        .carousel-control-next {
+            right: -20px;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+        }
+
+        /* Footer */
+        .footer-section {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Lazy Load Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .product-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .video-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .testimonial-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 32px;
@@ -376,6 +558,10 @@
             
             .product-image {
                 height: 300px;
+            }
+
+            .testimonials-section h2 {
+                font-size: 28px;
             }
         }
         
@@ -943,77 +1129,160 @@
             </div>
         </div>
     </div>
-    <!-- FAQ Section -->
-<section class="faq-section py-5">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold">Frequently Asked Questions</h2>
-      <p class="text-muted">Everything you need to know before ordering</p>
-    </div>
 
-    <div class="accordion accordion-flush" id="faqAccordion">
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Let customers speak for us</h2>
+            <div class="stars">★★★★★</div>
+            <p class="review-count">from 857 reviews <i class="bi bi-check-circle-fill"></i></p>
 
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button"
-            data-bs-toggle="collapse" data-bs-target="#faq1">
-            How long does delivery take?
-          </button>
-        </h2>
-        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Orders are usually delivered within <strong>5–7 working days</strong> depending on your location.
-          </div>
+            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- First Slide (3 reviews) -->
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-stars">★★★★★</div>
+                                    <h5 class="testimonial-title">Good quality very soft</h5>
+                                    <p class="testimonial-text">Great comfortable hoodie... One thing I would request that make hoodies in...</p>
+                                    <p class="testimonial-author">Diya Gupta</p>
+                                    <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=80&h=80&fit=crop" alt="Product" class="testimonial-image">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-stars">★★★★★</div>
+                                    <h5 class="testimonial-title">Sundar hoodie, very satisfied!</h5>
+                                    <p class="testimonial-text">Absolutely loved this hoodie. I got mine...</p>
+                                    <p class="testimonial-author">Dhananjay Tiwari</p>
+                                    <img src="https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=80&h=80&fit=crop" alt="Product" class="testimonial-image">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-stars">★★★★★</div>
+                                    <h5 class="testimonial-title">Last yr i bought 2 for 2400</h5>
+                                    <p class="testimonial-text">The quality, colour and fit i bet u won't get from any other high...</p>
+                                    <p class="testimonial-author">Itachi</p>
+                                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=80&h=80&fit=crop" alt="Product" class="testimonial-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Second Slide (3 more reviews) -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-stars">★★★★★</div>
+                                    <h5 class="testimonial-title">Amazing quality!</h5>
+                                    <p class="testimonial-text">The fabric is so soft and the fit is perfect. Highly recommend!</p>
+                                    <p class="testimonial-author">Rahul Sharma</p>
+                                    <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=80&h=80&fit=crop" alt="Product" class="testimonial-image">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-stars">★★★★★</div>
+                                    <h5 class="testimonial-title">Best purchase ever</h5>
+                                    <p class="testimonial-text">Worth every penny. The design and quality exceeded my expectations.</p>
+                                    <p class="testimonial-author">Priya Singh</p>
+                                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=80&h=80&fit=crop" alt="Product" class="testimonial-image">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-stars">★★★★★</div>
+                                    <h5 class="testimonial-title">Super comfortable</h5>
+                                    <p class="testimonial-text">I wear this all the time now. So cozy and stylish!</p>
+                                    <p class="testimonial-author">Amit Patel</p>
+                                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=80&h=80&fit=crop" alt="Product" class="testimonial-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button"
-            data-bs-toggle="collapse" data-bs-target="#faq2">
-            What is your return policy?
-          </button>
-        </h2>
-        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            We offer a <strong>7-day return</strong> policy for unused products with original packaging.
-          </div>
+    
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Follows Us on IG</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Our Policy</a>
+            </div>
+            <div class="social-icon">
+                <i class="bi bi-instagram"></i>
+            </div>
+            <div class="footer-copyright">
+                © 2026, URBAN NEEDS Powered by Shopify
+            </div>
         </div>
-      </div>
+    </footer>
 
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button"
-            data-bs-toggle="collapse" data-bs-target="#faq3">
-            How do I choose the correct size?
-          </button>
-        </h2>
-        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Refer to our <strong>size chart</strong> available on the product page for accurate fitting.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button"
-            data-bs-toggle="collapse" data-bs-target="#faq4">
-            Is Cash on Delivery available?
-          </button>
-        </h2>
-        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Yes, <strong>Cash on Delivery</strong> is available for selected locations.
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-2
     <script>
+        // Intersection Observer for Lazy Loading Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.addEventListener('DOMContentLoaded', () => {
+            // Product sections
+            document.querySelectorAll('.product-section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Video cards with stagger effect
+            document.querySelectorAll('.video-card').forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+                observer.observe(card);
+            });
+
+            // Testimonial cards with stagger effect
+            document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.15}s`;
+                observer.observe(card);
+            });
+
+            
+            // Testimonials Section
+            const testimonialSection = document.querySelector('.testimonials-section');
+            if (testimonialSection) {
+                testimonialSection.classList.add('fade-in-section');
+                observer.observe(testimonialSection);
+            }
+        });
+
         // Play/Pause video on click
         document.querySelectorAll('.video-wrapper').forEach(wrapper => {
             const video = wrapper.querySelector('.video-player');
@@ -1059,7 +1328,5 @@
         
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 </body>
 </html>
