@@ -1,0 +1,23 @@
+<?php
+/* First method to associate create array. */
+$salaries = array( 
+		   "sumit" => 20000, 
+		   "sudhir" => 10000, 
+		   "sonam" => 5000
+		  );
+
+echo "Salary of sumit is ". $salaries['sumit'] . "<br />";
+echo "Salary of qadir is ".  $salaries['sudhir']. "<br />";
+echo "Salary of zara is ".  $salaries['sonam']. "<br />";
+
+/* Second method to create array. */
+$salaries['sumit'] = "high";
+$salaries['sudhir'] = "medium";
+$salaries['sonam'] = "low";
+
+echo "Salary of sumit is ". $salaries['sumit'] . "<br />";
+echo "Salary of qadir is ".  $salaries['sudhir']. "<br />";
+echo "Salary of zara is ".  $salaries['sonam']. "<br />";
+?>
+</body>
+</html>
