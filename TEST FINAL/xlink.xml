@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<bookstore xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <book>
+        <title>Java Programming</title>
+        <info xlink:type="simple"
+              xlink:href="java.html"
+              xlink:title="Java Book Details"/>
+    </book>
+
+    <book>
+        <title>Web Technology</title>
+        <info xlink:type="simple"
+              xlink:href="web.html"
+              xlink:title="Web Technology Book"/>
+    </book>
+
+</bookstore>

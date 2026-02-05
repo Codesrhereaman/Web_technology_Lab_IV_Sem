@@ -1,0 +1,41 @@
+
+    
+</body>
+</html>
+<html>
+<body>
+
+<h3> XML Server Implementation</h3>
+
+<button onclick="loadXML()" class="load-button">Load Data</button>
+<div id="output"></div>
+<link rel="stylesheet" href="css/client.css">
+<script>
+function loadXML()
+{
+    var x = new XMLHttpRequest();
+    x.open("GET","server.php",true);
+    x.send();
+
+    x.onreadystatechange = function()
+    {
+        if(x.readyState==4 && x.status==200)
+        {
+            var xml = x.responseXML;
+            var books = xml.getElementsByTagName("book");
+
+            var text="";
+            for(var i=0;i<books.length;i++)
+            {
+                var t = books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                var p = books[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+                text += t + " : " + p + "<br />";
+            }
+            document.getElementById("output").innerHTML = text;
+        }
+    }
+}
+</script>
+
+</body>
+</html>

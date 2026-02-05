@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3 - JavaScript Promises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+        
+        .step {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e7f3ff;
+            border-left: 4px solid #007bff;
+        }
+        
+        .error {
+            color: red;
+            background-color: #ffe7e7;
+            border-left: 4px solid red;
+        }
+        
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>JavaScript Promises Demo</h2>
+        <p style="text-align: center;">Fetch User Data → Fetch Posts → Display Output</p>
+        
+        <button onclick="fetchDataWithPromises()">Fetch Data (Success)</button>
+        <button onclick="fetchDataWithError()">Fetch Data (With Error)</button>
+        
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const outputDiv = document.getElementById('output');
+        
+        // Promise Constructor - Simulating API call to fetch user data
+        function fetchUserData(shouldFail = false) {
+            return new Promise((resolve, reject) => {
+                outputDiv.innerHTML += '<div class="step loading">Fetching user data...</div>';
+                
+                setTimeout(() => {
+                    if (shouldFail) {
+                        reject('Error: Failed to fetch user data');
+                    } else {
+                        const userData = {
+                            id: 1,
+                            name: 'Aman Sharma',
+                            email: 'aman@example.com'
+                        };
+                        resolve(userData);
+                    }
+                }, 1000);
+            });
+        }
+        
+        // Promise Constructor - Simulating API call to fetch posts
+        function fetchUserPosts(userId) {
+            return new Promise((resolve, reject) => {
+                outputDiv.innerHTML += '<div class="step loading">Fetching user posts...</div>';
+                
+                setTimeout(() => {
+                    if (!userId) {
+                        reject('Error: User ID not provided');
+                    } else {
+                        const posts = [
+                            { id: 101, title: 'First Post', content: 'This is my first post' },
+                            { id: 102, title: 'Second Post', content: 'Learning JavaScript Promises' },
+                            { id: 103, title: 'Third Post', content: 'Promises are awesome!' }
+                        ];
+                        resolve(posts);
+                    }
+                }, 1000);
+            });
+        }
+        
+        // Function to display output
+        function displayOutput(user, posts) {
+            return new Promise((resolve, reject) => {
+                outputDiv.innerHTML += '<div class="step loading">Preparing display...</div>';
+                
+                setTimeout(() => {
+                    let output = `
+                        <div class="step">
+                            <strong>User Information:</strong><br>
+                            Name: ${user.name}<br>
+                            Email: ${user.email}<br>
+                            ID: ${user.id}
+                        </div>
+                    `;
+                    
+                    output += '<div class="step"><strong>User Posts:</strong></div>';
+                    
+                    posts.forEach(post => {
+                        output += `
+                            <div class="step">
+                                <strong>${post.title}</strong><br>
+                                ${post.content}
+                            </div>
+                        `;
+                    });
+                    
+                    resolve(output);
+                }, 1000);
+            });
+        }
+        
+        // Demonstration with .then() chaining
+        function fetchDataWithPromises() {
+            outputDiv.innerHTML = '<div class="step">Starting fetch operation...</div>';
+            
+            fetchUserData()
+                .then(user => {
+                    // First .then() - Handle user data
+                    outputDiv.innerHTML += `<div class="step">✓ User data received: ${user.name}</div>`;
+                    return fetchUserPosts(user.id);
+                })
+                .then(posts => {
+                    // Second .then() - Handle posts data
+                    outputDiv.innerHTML += `<div class="step">✓ Posts received: ${posts.length} posts</div>`;
+                    // Return both user and posts for display
+                    return fetchUserData().then(user => ({ user, posts }));
+                })
+                .then(data => {
+                    // Third .then() - Display final output
+                    return displayOutput(data.user, data.posts);
+                })
+                .then(finalOutput => {
+                    // Fourth .then() - Render the output
+                    outputDiv.innerHTML = finalOutput;
+                    outputDiv.innerHTML += '<div class="step" style="background-color: #d4edda; border-left-color: #28a745;">✓ All operations completed successfully!</div>';
+                })
+                .catch(error => {
+                    // .catch() - Error handling
+                    outputDiv.innerHTML += `<div class="step error">✗ ${error}</div>`;
+                });
+        }
+        
+        // Demonstration with error handling
+        function fetchDataWithError() {
+            outputDiv.innerHTML = '<div class="step">Starting fetch operation (with error)...</div>';
+            
+            fetchUserData(true) // Pass true to trigger error
+                .then(user => {
+                    outputDiv.innerHTML += `<div class="step">✓ User data received: ${user.name}</div>`;
+                    return fetchUserPosts(user.id);
+                })
+                .then(posts => {
+                    outputDiv.innerHTML += `<div class="step">✓ Posts received: ${posts.length} posts</div>`;
+                    return fetchUserData().then(user => ({ user, posts }));
+                })
+                .then(data => {
+                    return displayOutput(data.user, data.posts);
+                })
+                .then(finalOutput => {
+                    outputDiv.innerHTML = finalOutput;
+                })
+                .catch(error => {
+                    // .catch() handles any error in the promise chain
+                    outputDiv.innerHTML += `<div class="step error"><strong>Caught Error:</strong> ${error}</div>`;
+                    console.error('Promise chain error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
